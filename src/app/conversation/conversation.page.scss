@@ -1,0 +1,45 @@
+$primary-color: #007bff;
+$secondary-color: #6c757d;
+
+ion-header {
+  ion-toolbar {
+    --background: linear-gradient(to bottom, $primary-color, darken($primary-color, 10%));
+    --color: #2c2626;
+    --ion-toolbar-ios-border-color: transparent;
+    --ion-toolbar-md-border-color: transparent;
+    
+    transition: background-color 0.3s ease;
+  }
+  
+  ion-title {
+    font-size: 24px;
+    font-weight: bold;
+  }
+}
+
+ion-content {
+  ion-searchbar {
+    --color: $primary-color;
+    
+    ion-icon {
+      color: $primary-color;
+    }
+  }
+  
+  ion-list {
+    ion-item {
+      ion-label {
+        color: $primary-color;
+      }
+      
+      transition: background-color 0.3s ease;
+      
+      &:hover {
+        background-color: lighten($primary-color, 20%);
+      }
+    }
+  }
+  
+  background: linear-gradient(to bottom, $primary-color, lighten($primary-color, 10%));
+  box-shadow: 0 4px 6px rgba(116, 194, 116, 0.1);
+}

@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Conversation{{conversation.title}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Progress</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <audio controls style="width: 100%" id="audio" loop [src]="conversation.path">
+        您的浏览器不支持 audio 元素。
+      </audio>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>字幕/Text</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p *ngFor="let textItem of conversation.text">{{textItem}}</p>
+    </ion-card-content>
+  </ion-card>
+  <div slot="fixed" class="btns">
+    <ion-button class="fixed-play" (click)="play()">
+      <ion-icon slot="start" name="play-circle-outline"></ion-icon>
+      Play/Stop
+    </ion-button>
+    <ion-button slot="fixed" class="fixed-mic" (click)="record()">
+      <ion-icon slot="start" name="mic-circle-outline"></ion-icon>
+      {{isRecording?"recording":"record"}}
+    </ion-button>
+    <ion-button slot="fixed" class="fixed-score" *ngIf="recordScore != null">
+      <ion-icon slot="start" name="trophy-outline"></ion-icon>
+      上次得分:{{recordScore}}分
+    </ion-button>
+  </div>
+</ion-content>

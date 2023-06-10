@@ -1,0 +1,46 @@
+$primary-color: #007bff;
+$secondary-color: #6c757d;
+
+ion-menu {
+  --ion-background-color: $primary-color;
+  
+  ion-list-header {
+    color: #0d0e0d;
+    font-weight: bold;
+    padding: 10px;
+  }
+  
+  ion-item {
+    color: #f5d5d5;
+    ion-icon {
+      color: #f1c3c3;
+    }
+    
+    &:hover {
+      background-color: darken($primary-color, 10%);
+    }
+    
+    &.selected {
+      background-color: $secondary-color;
+    }
+  }
+}
+
+ion-menu-toggle {
+  ion-item {
+    color: $primary-color;
+    
+    ion-icon {
+      color: $primary-color;
+    }
+    
+    &:hover {
+      background-color: lighten($primary-color, 30%);
+    }
+  }
+}
+
+ion-router-outlet {
+  background-color: #f4f4f4;
+  padding: 20px;
+}

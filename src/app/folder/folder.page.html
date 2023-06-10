@@ -1,0 +1,25 @@
+<ion-content>
+  <ion-toolbar class="inner-toolbar">
+    <ion-title></ion-title>
+    <ion-buttons class="inner-buttons" slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <div class="wrap">
+    <div class="tit">学英语</div>
+    <div class="tit_t">English Learning</div>
+    <div class="cont">
+      <div class="subtit">活学活用，学以致用</div>
+      <div class="subtit_t">Live and apply what you have learned</div>
+    </div>
+    <div class="cont">
+      <ion-icon *ngIf="!isPlaying" class="play" name="play-circle-outline" (click)="playVideo()"></ion-icon>
+      <video id="video" controls class="video" poster="../../assets/farewell.jpg">
+        <source  src="../../assets/video/video.mp3" id="videoSourceO"
+                type="video/mp4">
+      
+        您的浏览器不支持 HTML5 video 标签。
+      </video>
+    </div>
+  </div>
+</ion-content>

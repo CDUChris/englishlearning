@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Conversation Training </ion-title>
+    <ion-buttons slot="end">
+      <ion-button> <!--upload button-->
+        <label>
+          <input
+            style="position: absolute; opacity: 0"
+            type="file"
+            name="file"
+            id="addFile"
+            accept=".mp3, .txt"
+            (change)="addFileChange($event)"
+          />
+          <ion-icon slot="icon-only" name="add-outline"></ion-icon>
+        </label>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar
+    animated="true"
+    placeholder="搜索/Search"
+    show-clear-button="always"
+    clear-icon="trash-bin"
+    (ionChange)="onInputChange($event)"
+  ></ion-searchbar>
+
+  <ion-list [inset]="true">
+    <ion-item
+      *ngFor="let conversation of conversations; let index=index;"
+      detail="true"
+      detail-icon="caret-forward-outline"
+      button
+      [routerLink]="['/recording', conversation.title]"
+    >
+      <ion-label>{{conversation.title}}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
