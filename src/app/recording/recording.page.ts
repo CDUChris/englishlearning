@@ -86,7 +86,7 @@ export class RecordingPage extends PageBase implements OnInit {
 
   async showLoading() {
     const loading = await this.loadingController.create({
-      message: '识别打分中...',
+      message: 'Calculating...',
     });
 
     await loading.present();
@@ -117,8 +117,8 @@ export class RecordingPage extends PageBase implements OnInit {
     await this.hideLoading();
     const _num = Number(compareResult * 100).toFixed(0);
     const toast = await this.toastController.create({
-      message: '本次得分:' + _num + '分，继续加油吧!',
-      duration: 1500,
+      message: 'The score is :' + _num + ' Keep Going!',
+      duration: 5000,
       position: 'middle'
     });
     await toast.present();
