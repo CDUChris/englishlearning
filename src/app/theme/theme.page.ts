@@ -58,10 +58,14 @@ export class ThemePage extends PageBase implements OnInit {
     this.loadingWin.present();
 
     const db = getFirestore(firebaseApp);
+
     
     console.log('---------', db);
     const docRef = collection(db, 'DropDownList');
+    
+
     let qr: any = docRef;
+
     if (this.favorite && this.$isLogin) {
       await this.getFavorite();
       console.log('this.myFavoriteSett', this.myFavoriteSett);

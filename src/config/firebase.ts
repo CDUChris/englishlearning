@@ -11,9 +11,10 @@ export const firebaseConfig = {
   projectId: "english-learning-e674b",
   storageBucket: "english-learning-e674b.appspot.com",
   messagingSenderId: "346486223133",
-  appId: "1:346486223133:web:88fec02903856dee2e71f4",
-  measurementId: "G-NLBVH2HTDE"
+  appId: "1:346486223133:web:76b08186226edc9a2e71f4",
+  measurementId: "G-PMCEMTMN8E"
 };
+
 
 // Initialize Firebase
 export const firebaseApp = initializeApp(firebaseConfig);

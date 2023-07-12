@@ -23,6 +23,7 @@
         <ion-item *ngFor="let word of wordsItem.words">
           <ion-label>{{word.en}}</ion-label>
           <ion-label>{{word.cn}}</ion-label>
+          <ion-checkbox slot="end" [checked]="word.remembered" (ionChange)="onCheckboxChange(word,$event)"></ion-checkbox>
         </ion-item>
       </ion-list>
     </ion-card-content>

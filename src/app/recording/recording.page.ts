@@ -6,7 +6,7 @@ import { NavController } from '@ionic/angular';
 import { similar } from '../utils/string';
 import { ToastController } from '@ionic/angular';
 import { LoadingController } from '@ionic/angular';
-import { getDownloadURL, getMetadata, getStorage, listAll, ref } from '@firebase/storage';
+import { getDownloadURL, getStorage,  ref } from '@firebase/storage';
 
 
 @Component({
@@ -39,7 +39,13 @@ export class RecordingPage extends PageBase implements OnInit {
   }
 
   ngOnInit() {
-    this.fetchConversationDetail()
+    const title = this.activatedRoute.snapshot.paramMap.get('title');
+    const name = this.activatedRoute.snapshot.paramMap.get('name')
+    if(title){
+      this.fetchConversationDetail()
+    }else{
+      this.fetchSentenceDetail()
+    }
     this.recognition.continuous = true;
     this.recognition.onend = async () => {
       const str = this.recognitionResult;
@@ -69,6 +75,34 @@ export class RecordingPage extends PageBase implements OnInit {
         reader.readAsText(blob, 'utf-8');
         reader.onload = () => {
           this.conversation = { path: mp3Url, title: this.activatedRoute.snapshot.paramMap.get('title'), text: (reader.result as any).split('\n') }
+        }
+      };
+      xhr.open('GET', wordsUrl.toString());
+      xhr.send();
+    } catch (error) {
+      const toast = await this.toastController.create({
+        message: '加载失败，请重试!',
+        duration: 1500,
+        position: 'middle'
+      });
+      await toast.present();
+    }
+
+  }
+
+  async fetchSentenceDetail() {
+    const storage = getStorage();
+    const wordRef = ref(storage, 'sentence/' + this.activatedRoute.snapshot.paramMap.get('name') );
+    try {
+      const wordsUrl = await getDownloadURL(wordRef);
+      const xhr = new XMLHttpRequest();
+      xhr.responseType = 'blob';
+      xhr.onload = (event) => {
+        const blob = xhr.response;
+        var reader = new FileReader();
+        reader.readAsText(blob, 'utf-8');
+        reader.onload = () => {
+          this.conversation = { title: this.activatedRoute.snapshot.paramMap.get('name'), text: (reader.result as any).split('\n') }
         }
       };
       xhr.open('GET', wordsUrl.toString());

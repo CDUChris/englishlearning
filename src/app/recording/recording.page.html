@@ -1,11 +1,11 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Conversation{{conversation.title}}</ion-title>
+    <ion-title>{{conversation.title}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <ion-card>
+  <ion-card  *ngIf="conversation.path">
     <ion-card-header>
       <ion-card-title>Progress</ion-card-title>
     </ion-card-header>
@@ -24,7 +24,7 @@
     </ion-card-content>
   </ion-card>
   <div slot="fixed" class="btns">
-    <ion-button class="fixed-play" (click)="play()">
+    <ion-button class="fixed-play" (click)="play()"  *ngIf="conversation.path">
       <ion-icon slot="start" name="play-circle-outline"></ion-icon>
       Play/Stop
     </ion-button>
@@ -34,7 +34,7 @@
     </ion-button>
     <ion-button slot="fixed" class="fixed-score" *ngIf="recordScore != null">
       <ion-icon slot="start" name="trophy-outline"></ion-icon>
-      Last record:{{recordScore}}分
+      Last record :{{recordScore}}分
     </ion-button>
   </div>
 </ion-content>

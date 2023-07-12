@@ -23,7 +23,10 @@ import { getAuth, RecaptchaVerifier } from '@angular/fire/auth';
 })
 export class AppComponent extends PageBase implements OnDestroy {
   public appLoginPages = [
-    { title: 'Start learn', url: '/theme', icon: 'flower-outline' },
+    { title: 'Start Learn', url: '/theme', icon: 'flower-outline' },
+    { title: 'English Words', url: '/word-list', icon: 'list-outline' },
+    { title: 'Sentence Training', url: '/sentence', icon: 'star-outline'},
+    { title: 'Conversation Training', url: '/conversation', icon: 'mic-outline' },
     {
       title: 'My favorite',
       func: () => {
@@ -32,8 +35,8 @@ export class AppComponent extends PageBase implements OnDestroy {
       },
       icon: 'star',
     },
-    { title: 'Conversation Training', url: '/conversation', icon: 'mic-outline' },
-    { title: 'English Words', url: '/word-list', icon: 'list-outline' },
+    
+    
   ];
   public appNoLoginPages: any[] = [
     { title: 'Sign in', url: '/login', icon: 'log-in-outline' },

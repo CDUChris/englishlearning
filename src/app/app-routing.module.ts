@@ -64,7 +64,15 @@ const routes: Routes = [
     loadChildren: () => import('./conversation/conversation.module').then( m => m.ConversationPageModule)
   },
   {
+    path: 'sentence',
+    loadChildren: () => import('./Sentence Training/sentence.module').then( m => m.SentencePageModule)
+  },
+  {
     path: 'recording/:title',
+    loadChildren: () => import('./recording/recording.module').then( m => m.RecordingPageModule)
+  },
+  {
+    path: 'recordingSentence/:name',
     loadChildren: () => import('./recording/recording.module').then( m => m.RecordingPageModule)
   },
   {
