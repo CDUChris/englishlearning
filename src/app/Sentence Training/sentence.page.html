@@ -22,6 +22,7 @@
       button [routerLink]="['/recordingSentence', sentence.name]">
       <ion-badge slot="start">{{sentence.index}}</ion-badge>
       <ion-label>{{sentence.title}}</ion-label>
+      <ion-checkbox slot="end" [checked]="sentence.remembered" (click)="onCheckBoxClick($event)" (ionChange)="onCheckboxChange(sentence,$event)"></ion-checkbox>
     </ion-item>
   </ion-list>
 </ion-content>

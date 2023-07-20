@@ -27,14 +27,14 @@ export class AppComponent extends PageBase implements OnDestroy {
     { title: 'English Words', url: '/word-list', icon: 'list-outline' },
     { title: 'Sentence Training', url: '/sentence', icon: 'star-outline'},
     { title: 'Conversation Training', url: '/conversation', icon: 'mic-outline' },
-    {
-      title: 'My favorite',
-      func: () => {
-        console.log('++++++++')
-        this.navCtrl.navigateForward(['/theme', { favorite: true }]);
-      },
-      icon: 'star',
-    },
+    // {
+    //   title: 'My favorite',
+    //   func: () => {
+    //     console.log('++++++++')
+    //     this.navCtrl.navigateForward(['/theme', { favorite: true }]);
+    //   },
+    //   icon: 'star',
+    // },
     
     
   ];

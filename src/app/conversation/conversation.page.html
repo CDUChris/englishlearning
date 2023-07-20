@@ -37,6 +37,7 @@
       [routerLink]="['/recording', conversation.title]"
     >
       <ion-label>{{conversation.title}}</ion-label>
+      <ion-checkbox slot="end" [checked]="conversation.remembered" (click)="onCheckBoxClick($event)" (ionChange)="onCheckboxChange(conversation,$event)"></ion-checkbox>
     </ion-item>
   </ion-list>
 </ion-content>

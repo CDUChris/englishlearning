@@ -4,7 +4,7 @@ $secondary-color: #6c757d;
 ion-header {
   ion-toolbar {
     --background: linear-gradient(to bottom, $primary-color, darken($primary-color, 10%));
-    --color: #2c2626;
+    --color: #2b0dd3;
     --ion-toolbar-ios-border-color: transparent;
     --ion-toolbar-md-border-color: transparent;
     
@@ -41,5 +41,5 @@ ion-content {
   }
   
   background: linear-gradient(to bottom, $primary-color, lighten($primary-color, 10%));
-  box-shadow: 0 4px 6px rgba(116, 194, 116, 0.1);
+  box-shadow: 0 4px 6px rgba(5, 5, 5, 0.1);
 }

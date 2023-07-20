@@ -30,6 +30,7 @@ export class SentencePage extends PageBase implements OnInit {
     this.fetchSentences()
   }
 
+
   async fetchSentences() {
 
     // Create a reference to the file we want to download
@@ -48,7 +49,7 @@ export class SentencePage extends PageBase implements OnInit {
           const match = /([0-9]+).([\u4E00-\u9FA5，。]+).txt/.exec(name) || {};
           const index = match[1];
           const title = match[2];
-          return { index,title,name }
+          return { index,title,name, remembered:localStorage.getItem(`sentence${title}`) }
         }).sort((a,b)=>a.index-b.index);
       }).catch((error) => {
         // Uh-oh, an error occurred!
@@ -91,6 +92,20 @@ export class SentencePage extends PageBase implements OnInit {
   onInputChange(e) {
     const { value } = e.detail || {};
     this.sentences = this.sentenceSource.filter((sentence) => sentence.title.indexOf(value) != -1)
+  }
+
+  onCheckboxChange(sentence,e){
+    const { title } = sentence;
+    const { detail: { checked } } = e;
+    if (checked) {
+      localStorage.setItem(`sentence${title}`, '1');
+    } else {
+      localStorage.removeItem(`sentence${title}`);
+    }
+  }
+
+  onCheckBoxClick(e){
+    e.stopPropagation()
   }
 
 }

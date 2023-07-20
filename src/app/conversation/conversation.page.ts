@@ -41,7 +41,7 @@ export class ConversationPage extends PageBase implements OnInit {
     // Find all the prefixes and items.
     listAll(listRef)
       .then((res) => {
-        this.conversations = this.conversationsSource = res.prefixes.map(item => ({ title: item.name }));
+        this.conversations = this.conversationsSource = res.prefixes.map(item => ({ title: item.name,remembered:localStorage.getItem(`conversation${item.name}`) }));
       }).catch((error) => {
         // Uh-oh, an error occurred!
       });
@@ -84,6 +84,21 @@ export class ConversationPage extends PageBase implements OnInit {
   onInputChange(e) {
     const { value } = e.detail || {};
     this.conversations = this.conversationsSource.filter((conversation) => conversation.title.indexOf(value) != -1)
+  }
+
+  
+  onCheckboxChange(conversation,e){
+    const { title } = conversation;
+    const { detail: { checked } } = e;
+    if (checked) {
+      localStorage.setItem(`conversation${title}`, '1');
+    } else {
+      localStorage.removeItem(`conversation${title}`);
+    }
+  }
+
+  onCheckBoxClick(e){
+    e.stopPropagation()
   }
 
 }
