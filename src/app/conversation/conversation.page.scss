@@ -7,39 +7,47 @@ ion-header {
     --color: #2c2626;
     --ion-toolbar-ios-border-color: transparent;
     --ion-toolbar-md-border-color: transparent;
-    
+
     transition: background-color 0.3s ease;
-  }
-  
-  ion-title {
-    font-size: 24px;
-    font-weight: bold;
+
+    ion-title {
+      font-size: 28px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
   }
 }
 
 ion-content {
   ion-searchbar {
     --color: $primary-color;
-    
+    --placeholder-color: lighten($primary-color, 30%);
+
     ion-icon {
       color: $primary-color;
     }
   }
-  
+
   ion-list {
     ion-item {
       ion-label {
         color: $primary-color;
+        font-size: 18px;
+        font-weight: bold;
       }
-      
+
       transition: background-color 0.3s ease;
-      
+
       &:hover {
-        background-color: lighten($primary-color, 20%);
+        background-color: lighten($primary-color, 15%);
+        ion-label {
+          color: $secondary-color;
+        }
       }
     }
   }
-  
+
   background: linear-gradient(to bottom, $primary-color, lighten($primary-color, 10%));
-  box-shadow: 0 4px 6px rgba(116, 194, 116, 0.1);
+  box-shadow: 0 6px 10px rgba(0, 123, 255, 0.1);
 }

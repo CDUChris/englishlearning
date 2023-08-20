@@ -46,12 +46,13 @@ export class SentencePage extends PageBase implements OnInit {
           const name = item.name;
           // 正则匹配， ([0-9]+)匹配编号，\u4E00-\u9FA5匹配中文，
           // /([0-9]+).([a-zA-Z,]+).txt/ english
-          const match = /([0-9]+).([\u4E00-\u9FA5，。]+).txt/.exec(name) || {};
+          const match = /([0-9]+).([a-zA-Z\s]+).txt/.exec(name) || {};
           const index = match[1];
           const title = match[2];
           return { index,title,name, remembered:localStorage.getItem(`sentence${title}`) }
         }).sort((a,b)=>a.index-b.index);
       }).catch((error) => {
+        console.error("Error fetching sentences:", error);
         // Uh-oh, an error occurred!
       });
   }
