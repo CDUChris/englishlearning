@@ -7,6 +7,8 @@ import { IonicModule } from '@ionic/angular';
 import { RecordingPageRoutingModule } from './recording-routing.module';
 
 import { RecordingPage } from './recording.page';
+import { SpeechRecognition } from '@awesome-cordova-plugins/speech-recognition/ngx';
+
 
 @NgModule({
   imports: [
@@ -15,6 +17,9 @@ import { RecordingPage } from './recording.page';
     IonicModule,
     RecordingPageRoutingModule
   ],
-  declarations: [RecordingPage]
+  declarations: [RecordingPage],
+  providers: [
+    SpeechRecognition
+  ]
 })
 export class RecordingPageModule {}

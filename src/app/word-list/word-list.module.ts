@@ -12,7 +12,6 @@ import { WordListPage } from './word-list.page';
   imports: [
     CommonModule,
     FormsModule,
-    IonicModule,
     WordListPageRoutingModule
   ],
   declarations: [WordListPage]

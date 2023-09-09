@@ -5,6 +5,7 @@ import { LoadingController, NavController, ToastController } from '@ionic/angula
 import { ActivatedRoute } from '@angular/router';
 import { getStorage, ref, listAll } from "firebase/storage";
 import { uploadBytes } from '@firebase/storage';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-conversation',
@@ -22,6 +23,7 @@ export class ConversationPage extends PageBase implements OnInit {
     public route: ActivatedRoute,
     private toastController: ToastController,
     private loadingController: LoadingController,
+    private router:Router
   ) {
     super(appStore, navCtrl, route);
   }
@@ -99,6 +101,10 @@ export class ConversationPage extends PageBase implements OnInit {
 
   onCheckBoxClick(e){
     e.stopPropagation()
+  }
+  onBack(){
+    // this.location.back()
+    this.router.navigate(['folder/Inbox'])
   }
 
 }

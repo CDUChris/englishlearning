@@ -3,6 +3,7 @@ import { PageBase } from '../app.page';
 import { AppStore } from '../app.store';
 import { LoadingController, NavController, ToastController } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { getStorage, ref, listAll } from "firebase/storage";
 import { uploadBytes } from '@firebase/storage';
 
@@ -21,6 +22,7 @@ export class SentencePage extends PageBase implements OnInit {
     protected navCtrl: NavController,
     public route: ActivatedRoute,
     private toastController: ToastController,
+    private router: Router,
     private loadingController: LoadingController,
   ) {
     super(appStore, navCtrl, route);
@@ -107,6 +109,11 @@ export class SentencePage extends PageBase implements OnInit {
 
   onCheckBoxClick(e){
     e.stopPropagation()
+  }
+
+  onBack(){
+    // this.location.back()
+    this.router.navigate(['folder/Inbox'])
   }
 
 }

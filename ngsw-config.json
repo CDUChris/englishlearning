@@ -3,7 +3,7 @@
   "index": "/index.html",
   "assetGroups": [
     {
-      "name": "app",
+      "name": "com.english.learn",
       "installMode": "prefetch",
       "resources": {
         "files": [

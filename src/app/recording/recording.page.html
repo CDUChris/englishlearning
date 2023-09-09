@@ -1,16 +1,25 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="#" (click)="onBack()"></ion-back-button>
+    </ion-buttons>
     <ion-title>{{conversation.title}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <ion-card  *ngIf="conversation.path">
+  <ion-card *ngIf="conversation.path">
     <ion-card-header>
       <ion-card-title>Progress</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <audio controls style="width: 100%" id="audio" loop [src]="conversation.path">
+      <audio
+        controls
+        style="width: 100%"
+        id="audio"
+        loop
+        [src]="conversation.path"
+      >
         您的浏览器不支持 audio 元素。
       </audio>
     </ion-card-content>
@@ -24,7 +33,7 @@
     </ion-card-content>
   </ion-card>
   <div slot="fixed" class="btns">
-    <ion-button class="fixed-play" (click)="play()"  *ngIf="conversation.path">
+    <ion-button class="fixed-play" (click)="play()" *ngIf="conversation.path">
       <ion-icon slot="start" name="play-circle-outline"></ion-icon>
       Play/Stop
     </ion-button>

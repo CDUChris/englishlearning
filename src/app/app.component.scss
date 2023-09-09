@@ -1,46 +1,51 @@
-$primary-color: #007bff;
+$primary-color: #0d0e0d;
 $secondary-color: #6c757d;
+$light-blue-color: #007bff;
+$deep-blue-color: #f3f4f5;
 
 ion-menu {
-  --ion-background-color: $primary-color;
+  --ion-background-color: $light-blue-color;
+  border: 5px solid $deep-blue-color;
 
   ion-list-header {
     color: #0d0e0d;
     font-weight: bold;
     padding: 10px;
-    background-color: color #07a2f0;
-    border-bottom: 5px solid $secondary-color;
+    background-color: $light-blue-color;
+    border-bottom: 5px solid $deep-blue-color;
     transition: background-color 0.3s ease;
 
     &:hover {
-      background-color: lighten($primary-color, 10%);
+      background-color: lighten($light-blue-color, 70%);
     }
   }
 
   ion-item {
     color: #f5d5d5;
+    background-color: #fff;
     ion-icon {
       color: #f1c3c3;
+    
     }
 
     &:hover {
-      background-color: mix($primary-color, #000, 10%);
+      background-color: mix($light-blue-color, #000, 10%);
       ion-icon {
-        color: #fff;
+        color: #007bff;
       }
     }
 
     &.selected {
-      background-color: $secondary-color;
+      background-color: $deep-blue-color;
       ion-icon {
-        color: #fff;
+        color: #007bff;
       }
     }
 
     &.active {
-      background-color: darken($primary-color, 20%);
+      background-color: darken($light-blue-color, 20%);
       ion-icon {
-        color: #fff;
+        color: #ffffff;
       }
     }
   }
@@ -49,8 +54,10 @@ ion-menu {
 ion-menu-toggle {
   ion-item {
     color: $primary-color;
+    background-color: #fff;
     ion-icon {
       color: $primary-color;
+    
     }
 
     &:hover {
@@ -70,7 +77,8 @@ ion-menu-toggle {
 }
 
 ion-router-outlet {
-  background-color: #f4f4f4;
+  background-color: $light-blue-color;
+  border: 5px solid $deep-blue-color;
   padding: 20px;
 
   &.fade-enter-active,

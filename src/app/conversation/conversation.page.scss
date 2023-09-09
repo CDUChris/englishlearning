@@ -11,10 +11,12 @@ ion-header {
     transition: background-color 0.3s ease;
 
     ion-title {
-      font-size: 28px;
+      font-size: 18px;
       font-weight: bold;
       text-transform: uppercase;
       letter-spacing: 1px;
+
+    
     }
   }
 }
@@ -33,7 +35,7 @@ ion-content {
     ion-item {
       ion-label {
         color: $primary-color;
-        font-size: 18px;
+        font-size: 15px;
         font-weight: bold;
       }
 
