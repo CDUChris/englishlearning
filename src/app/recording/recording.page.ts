@@ -41,7 +41,7 @@ export class RecordingPage extends PageBase implements OnInit {
 
   async ngOnInit() {
     const toast = await this.toastController.create({
-      message: `语音识别huanjingjiange111`,
+      message: `Audio recognization module loading...`,
       duration: 1500,
       position: "middle",
     });
